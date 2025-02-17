@@ -32,9 +32,22 @@ public class BST<T extends Comparable<T>> implements Tree<T> {
      * @param tree el nodo raíz del árbol.
      * @return la altura del árbol.
      */
+    // @Override
+    // public int height(Node<T> tree) {
+    //     if (tree == null) return 0;
+
+    //     return 1 + Math.max(height(tree.getLeft()), height(tree.getRight()));
+    // }
+
+    /**
+     * Calcula la altura del árbol revisando si es una hoja.
+     * @param tree el nodo raíz del árbol.
+     * @return la altura del árbol.
+     */
     @Override
     public int height(Node<T> tree) {
         if (tree == null) return 0;
+        if (tree.getLeft() == null && tree.getRight() == null) return 1;
 
         return 1 + Math.max(height(tree.getLeft()), height(tree.getRight()));
     }
